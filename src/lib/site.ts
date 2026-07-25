@@ -11,6 +11,7 @@ export const siteConfig = {
 export const navLinks = [
   { href: "/", label: "トップ" },
   { href: "/#areas", label: "対応エリア" },
+  { href: "/blog", label: "コラム" },
   { href: "/#faq", label: "よくある質問" },
   { href: "/about", label: "運営者情報" },
 ];

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import CtaButton from "@/components/common/CtaButton";
 import { areas } from "@/data/areas";
+import { articles } from "@/data/articles";
 import { scenes } from "@/data/scenes";
 import { siteConfig } from "@/lib/site";
 
@@ -15,7 +16,7 @@ export default function Footer() {
           <CtaButton size="lg">無料で査定を依頼する</CtaButton>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
           <div>
             <h3 className="mb-3 text-sm font-bold text-white">対応エリア</h3>
             <ul className="space-y-2 text-sm">
@@ -39,6 +40,24 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-3 text-sm font-bold text-white">コラム</h3>
+            <ul className="space-y-2 text-sm">
+              {articles.slice(0, 5).map((article) => (
+                <li key={article.slug}>
+                  <Link href={`/blog/${article.slug}`} className="hover:text-white">
+                    {article.title}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/blog" className="font-bold hover:text-white">
+                  コラム一覧を見る
+                </Link>
+              </li>
             </ul>
           </div>
 

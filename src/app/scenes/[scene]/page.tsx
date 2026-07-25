@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import AssessmentForm from "@/components/form/AssessmentForm";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import SectionHeading from "@/components/common/SectionHeading";
+import { getArticlesBySceneSlug } from "@/data/articles";
 import { getSceneBySlug, scenes } from "@/data/scenes";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -41,6 +43,8 @@ export default async function ScenePage({ params }: PageProps) {
     notFound();
   }
 
+  const relatedArticles = getArticlesBySceneSlug(scene.slug);
+
   return (
     <>
       <section className="bg-navy-900 text-white">
@@ -78,6 +82,25 @@ export default async function ScenePage({ params }: PageProps) {
             <SectionHeading align="left" title={`${scene.name}による売却の進め方`} />
             <p className="mt-4 text-sm leading-relaxed text-slate-700 sm:text-base">{scene.body}</p>
           </div>
+
+          {relatedArticles.length > 0 && (
+            <div className="mt-10">
+              <SectionHeading align="left" title="関連コラム" />
+              <ul className="mt-4 space-y-3">
+                {relatedArticles.map((article) => (
+                  <li key={article.slug}>
+                    <Link
+                      href={`/blog/${article.slug}`}
+                      className="flex items-center gap-2 rounded-xl border border-slate-200 p-4 text-sm font-bold text-navy-900 hover:border-accent-500"
+                    >
+                      {article.title}
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </section>
 

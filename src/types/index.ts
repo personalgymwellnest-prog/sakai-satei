@@ -48,3 +48,20 @@ export interface AssessmentFormValues {
   phone: string;
   email: string;
 }
+
+export interface ArticleSection {
+  heading: string;
+  body: string;
+}
+
+export interface ArticleData {
+  slug: string;
+  title: string;
+  description: string;
+  category: string;
+  publishedAt: string;
+  leadText: string;
+  sections: ArticleSection[];
+  relatedSceneSlug?: string;
+  relatedWardSlug?: string;
+}

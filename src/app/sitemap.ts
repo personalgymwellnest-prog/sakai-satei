@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
 import { areas } from "@/data/areas";
+import { articles } from "@/data/articles";
 import { scenes } from "@/data/scenes";
 import { siteConfig } from "@/lib/site";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["/", "/about", "/privacy", "/tokushoho"].map((path) => ({
+  const staticPages = ["/", "/blog", "/about", "/privacy", "/tokushoho"].map((path) => ({
     url: new URL(path, siteConfig.url).toString(),
     changeFrequency: "monthly" as const,
     priority: path === "/" ? 1 : 0.5,
@@ -24,5 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...areaPages, ...scenePages];
+  const articlePages = articles.map((article) => ({
+    url: new URL(`/blog/${article.slug}`, siteConfig.url).toString(),
+    lastModified: new Date(article.publishedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...areaPages, ...scenePages, ...articlePages];
 }
