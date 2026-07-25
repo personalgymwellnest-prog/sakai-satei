@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1b2430;
+
+  /* Base palette: cool navy / blue tones for trust & cleanliness */
+  --color-navy-950: #0a1930;
+  --color-navy-900: #0f2544;
+  --color-navy-800: #163459;
+  --color-navy-700: #1f4877;
+  --color-navy-600: #2b5d97;
+  --color-navy-100: #e8eff8;
+  --color-navy-50: #f4f8fc;
+
+  --color-blue-600: #2f6fb8;
+  --color-blue-500: #3f84d0;
+
+  /* Accent: inspired by "利休鼠 (Rikyu-nezumi)", the muted sage-grey named
+     after tea master Sen no Rikyu, who was born in Sakai. Used sparingly
+     as the single differentiating color against the navy/blue base. */
+  --color-accent-900: #4c5a48;
+  --color-accent-700: #64765f;
+  --color-accent-600: #74886e;
+  --color-accent-500: #87977f;
+  --color-accent-100: #e7ede3;
+  --color-accent-50: #f3f6f1;
+
+  --color-slate-900: #1b2430;
+  --color-slate-600: #4b5768;
+  --color-slate-400: #8a95a3;
+  --color-slate-200: #e1e6ec;
+  --color-slate-100: #f1f4f7;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-noto-sans-jp), var(--font-geist-sans), sans-serif;
+
+  --color-navy-950: var(--color-navy-950);
+  --color-navy-900: var(--color-navy-900);
+  --color-navy-800: var(--color-navy-800);
+  --color-navy-700: var(--color-navy-700);
+  --color-navy-600: var(--color-navy-600);
+  --color-navy-100: var(--color-navy-100);
+  --color-navy-50: var(--color-navy-50);
+
+  --color-blue-600: var(--color-blue-600);
+  --color-blue-500: var(--color-blue-500);
+
+  --color-accent-900: var(--color-accent-900);
+  --color-accent-700: var(--color-accent-700);
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-100: var(--color-accent-100);
+  --color-accent-50: var(--color-accent-50);
+
+  --color-slate-900: var(--color-slate-900);
+  --color-slate-600: var(--color-slate-600);
+  --color-slate-400: var(--color-slate-400);
+  --color-slate-200: var(--color-slate-200);
+  --color-slate-100: var(--color-slate-100);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
