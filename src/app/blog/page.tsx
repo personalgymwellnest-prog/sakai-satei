@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/common/Breadcrumb";
+import PlaceholderImage from "@/components/common/PlaceholderImage";
 import SectionHeading from "@/components/common/SectionHeading";
 import { articles } from "@/data/articles";
 import { buildMetadata } from "@/lib/metadata";
@@ -36,6 +37,7 @@ export default function BlogIndexPage() {
                 href={`/blog/${article.slug}`}
                 className="flex flex-col gap-3 rounded-2xl border border-slate-200 p-6 transition-colors hover:border-accent-500"
               >
+                <PlaceholderImage label={article.category} aspect="video" />
                 <span className="w-fit rounded-full bg-accent-50 px-3 py-1 text-xs font-bold text-accent-700">
                   {article.category}
                 </span>

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import AssessmentForm from "@/components/form/AssessmentForm";
 import Breadcrumb from "@/components/common/Breadcrumb";
+import PlaceholderImage from "@/components/common/PlaceholderImage";
 import SectionHeading from "@/components/common/SectionHeading";
 import { articles, getArticleBySlug } from "@/data/articles";
 import { getSceneBySlug } from "@/data/scenes";
@@ -85,6 +86,8 @@ export default async function ArticlePage({ params }: PageProps) {
 
       <section className="bg-white py-14 sm:py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <PlaceholderImage label={article.title} aspect="wide" className="mb-10" />
+
           <p className="text-sm leading-relaxed text-slate-700 sm:text-base">{article.leadText}</p>
 
           <div className="mt-10 space-y-10">
