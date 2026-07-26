@@ -79,6 +79,11 @@ export default function Footer() {
                   運営者情報
                 </Link>
               </li>
+              <li>
+                <Link href="/companies" className="hover:text-white">
+                  堺市の不動産会社(参考情報)
+                </Link>
+              </li>
             </ul>
           </div>
 
